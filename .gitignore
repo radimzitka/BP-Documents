@@ -6,6 +6,7 @@
 *.log
 *.out
 *.pdf
+!zadani.pdf
 *.ptc
 *.synctex.gz
 *.toc
