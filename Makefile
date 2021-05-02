@@ -19,6 +19,7 @@ $(CO).pdf: clean
 	-bibtex $(CO)
 	pdflatex $(CO)
 	pdflatex $(CO)
+	make clean
 
 $(CO).dvi: $(CO).tex $(CO).bib
 	latex $(CO)
@@ -27,8 +28,8 @@ $(CO).dvi: $(CO).tex $(CO).bib
 	latex $(CO)
 
 clean:
-	rm -f *.dvi *.log $(CO).blg $(CO).bbl $(CO).toc *.aux $(CO).out $(CO).lof $(CO).ptc
-	rm -f $(CO).pdf
+	rm -f *.dvi *.log $(CO).blg $(CO).bbl $(CO).toc *.aux $(CO).out $(CO).lof $(CO).ptc $(CO).fls $(CO).fdb
+	# rm -f $(CO).pdf
 	rm -f *~
 
 pack:
