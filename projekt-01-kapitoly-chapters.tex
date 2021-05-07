@@ -11,7 +11,7 @@ Cílem této práce je pomoci vývojářům v~získávání vědomostí o~použi
 
 \chapter{Webová komunikace}
 \label{chap:web_communication}
-V této kapitole jsou čtenáři objasněny některé základní pojmy týkající se webové komunikace. Tyto znalosti jsou nezbytné pro funkční nastavení automatického robota tak, aby ochrana webového serveru (tzn. aplikační firewall, kapitola \ref{chap:application_firewall}) neodhalila podezřelý provoz a~naopak~--~aby bylo možné analyzovat podezřelý webový provoz z~pohledu vlastníka serveru.
+V této kapitole jsou čtenáři objasněny některé základní pojmy týkající se webové komunikace. Tyto znalosti jsou nezbytné pro funkční nastavení automatického robota tak, aby ochrana webového serveru (tzn. aplikační firewall, kapitola~\ref{chap:application_firewall}) neodhalila podezřelý provoz a~naopak~--~aby bylo možné analyzovat podezřelý webový provoz z~pohledu vlastníka serveru.
 
 \section{Protokol HTTP/HTTPS}
 \label{sec:http}
@@ -48,7 +48,7 @@ like Gecko) Chrome/86.0.4240.183 Safari/537.36}.
 
 \section{Webový prohlížeč}
 \label{sec:web_browser}
-Webový prohlížeč je aplikace, který na základě uživatelských příkazů komunikuje s~určitým webovým serverem (viz protokol HTTP~\ref{sec:http}). Data, která získává touto komunikací, vykresluje jako webovou stránku (popř. aplikaci) podle přesně definovaných pravidel (viz~\ref{sec:html}). Webový prohlížeč si ukládá data o~navštívených stránkách, tzv. cookies~\ref{sec:cookies}. Při procházení jednotlivých stránek si může mimo cookies ukládat i~obsah stránek do cache za účelem rychlejšího načítání v~budoucnosti.
+Webový prohlížeč je aplikace, který na základě uživatelských příkazů komunikuje s~určitým webovým serverem (viz protokol HTTP~\ref{sec:http}). Data, která získává touto komunikací, vykresluje jako webovou stránku (popř.~aplikaci) podle přesně definovaných pravidel (viz~\ref{sec:html}). Webový prohlížeč si ukládá data o~navštívených stránkách, tzv. cookies~\ref{sec:cookies}. Při procházení jednotlivých stránek si může mimo cookies ukládat i~obsah stránek do cache za účelem rychlejšího načítání v~budoucnosti.
 
 V moderních prohlížečích existují nástroje \footnote{Pro prohlížeče pracující s~jádrem Google Chrome se tento nástroj nazývá Chrome DevTools.}, pomocí nichž je možné jednoduše upravovat celou webovou stránku (HTML dokument), připojit se na konzoli a~pracovat s~JavaScriptovým obsahem apod. Tento nástroj také umožňuje sledovat síťový provoz dané webové stránky, který lze analyzovat. Znalost získanou analýzou provozu lze využít pro naprogramování automatického bota, který poté může velmi dobře simulovat běžný uživatelský provoz \cite{bib:google_inspect}.
 
@@ -95,7 +95,7 @@ Díky zobrazení zdrojového HTML dokumentu v~Chrome DevTools lze identifikovat 
 \label{sec:tor_browser}
 Síť Tor slouží k~anonymizaci uživatelů, tedy slouží k~ochraně jejich soukromí. Je udržována neziskouvou organizací \textit{The Tor project} a~veškerý zdrojový kód sítě Tor je open source. Nejvíce je využíván pro účely prohlížeče, jehož používáním získá uživatel téměř dokonalou anonymitu. Prohlížeč pro síť Tor se nazývá \textit{Torbrowser} \cite{bib:tor_browser}. Může být využíván pro nelegální aktivity a~umožňuje přístup do Dark Webu.
 
-Princip sítě Tor funguje na principu tunelování na Tor síti, tzv. Onion routing. To zajišťuje, že veškerý provoz mezi klientem a~serverem je šifrovaný (což je standard v~dnešní době i~bez použití Toru), nicméně jeho hlavní přednost spočívá v~tom, že provoz je směrován přes více různých Tor serverů. Ty pak vystupují jako klient a~zajistí původnímu klientovi takřka naprostou anonymitu. Pro účely této práce je nejdůležitější, že klient vystupuje pokaždé pod jinou adresou a~velmi pravděpodobně z~jiného místa (např.~Londýn či New York). IP adresy, pod kterými klient vystupuje, jsou velmi často v~gray listu\footnote{Gray list je seznam IP adres, ze~kterých byl dříve zaznamenán podezřelý provoz či jsou nějakým jiným způsobem podezřelé. Více v~kapitole \ref{sec:gray_list}.}, nicméně tyto adresy se neustále mění. 
+Princip sítě Tor funguje na principu tunelování na Tor síti, tzv. Onion routing. To zajišťuje, že veškerý provoz mezi klientem a~serverem je šifrovaný (což je standard v~dnešní době i~bez použití Toru), nicméně jeho hlavní přednost spočívá v~tom, že provoz je směrován přes více různých Tor serverů. Ty pak vystupují jako klient a~zajistí původnímu klientovi takřka naprostou anonymitu. Pro účely této práce je nejdůležitější, že klient vystupuje pokaždé pod jinou adresou a~velmi pravděpodobně z~jiného místa (např.~Londýn či New York). IP adresy, pod kterými klient vystupuje, jsou velmi často v~gray listu\footnote{Gray list je seznam IP adres, ze~kterých byl dříve zaznamenán podezřelý provoz či jsou nějakým jiným způsobem podezřelé. Více v~kapitole~\ref{sec:gray_list}.}, nicméně tyto adresy se neustále mění. 
 
 Rozpoznat Tor adresu není příliš složité. Jde například o~nestandardní čísla portů, neexistující SSL vydavatel certifikátu, neexistující vydavatel certifikátu pro DNS apod. \cite{bib:tor_recognition}.
 
@@ -172,7 +172,7 @@ Každý tag může mít určené svoje chování, které by mělo být definová
 \label{sec:java_script}
 JavaScript (JS) je nejznámější skriptovací jazyk pro webové stránky, který využívá mnoho dalších prostředí (Node.js, Adobe Acrobat). Společně s~jazyky HTML a~CSS tvoří jádro technologie WWW \cite{bib:js_html_css}. Javascript provádí kód ve webovém prohlížeči (tedy na straně uživatele).
 
-S použitím jazyka JS je možno prakticky ihned reagovat na vstup uživatele, umožňuje tedy měnit HTML prvky (popř. je vytvářet), pracovat s~jejich obsahem či designem. JS umožňuje reagovat na pohyb myši, kliknutí na grafický prvek nebo v~reálném čase změnit hodnotu čísla či textu. Dále umožňuje práci s~webovým prohlížečem jako je pohyb v~historii a~otevírání či zavírání oken. Kód JavaScriptu se vykonává v~okamžiku, kdy na něj prohlížeč při procházení stránky narazí \cite{bib:IIS_JS}.
+S použitím jazyka JS je možno prakticky ihned reagovat na vstup uživatele, umožňuje tedy měnit HTML prvky (popř.~je vytvářet), pracovat s~jejich obsahem či designem. JS umožňuje reagovat na pohyb myši, kliknutí na grafický prvek nebo v~reálném čase změnit hodnotu čísla či textu. Dále umožňuje práci s~webovým prohlížečem jako je pohyb v~historii a~otevírání či zavírání oken. Kód JavaScriptu se vykonává v~okamžiku, kdy na něj prohlížeč při procházení stránky narazí \cite{bib:IIS_JS}.
 
 V JavaScriptu je napsáno poměrně velké množství desktopových aplikací pomocí frameworku Electron. Mezi tyto aplikace patří např.~vývojové prostředí Visual Studio Code, chatovací programy Slack či Discord a~Skype \cite{bib:electron}.
 
@@ -277,13 +277,13 @@ Cílem phishingu je získání citlivých dat ostatních uživatelů. Velmi čas
 Podobně jako klasické útoky DDoS (viz~\ref{sec:DDoS_force}) mají za cíl dostat webovou službu do stavu, kdy není schopna obsloužit normální uživatele. Oproti klasickému útoku DDoS však útočí na aplikační vrstvu, z~nich nejznámější je tzv. HTTP floods attack (\uv{HTTP záplava}). To je útok, kdy se několik distribuovaných a~synchronizovaných stanic dotazuje HTTP dotazem GET nebo POST, ale server nestíhá odbavit takové množství požadavků a~donutí službu (či server) spadnout \cite{bib:HTTP_flood}. Aplikační firewall by měl být schopen tento typ útoku odhalit.
 
 \subsection*{SQL injection}
-SQL injection útok může odhalovat mnoho citlivých informací uložených v~SQL databázi (např.~přihlašovací údaje, hesla, telefonní čísla atd.). SQL Injection se pokouší získat neoprávněný vstup do databáze vložením SQL kódu do formuláře. V~případě, že se útočníkovi podaří získat strukturu databáze, může jednoduše manipulovat s~daty uloženými v~databázi \cite{bib:SQL_injection}. Data získaná pomocí formuláře by tedy měla být zkontrolována (např. aplikačním firewallem), zda neobsahují škodlivý (spustitelný) kód a~předejít útokům tohoto typu.
+SQL injection útok může odhalovat mnoho citlivých informací uložených v~SQL databázi (např.~přihlašovací údaje, hesla, telefonní čísla atd.). SQL Injection se pokouší získat neoprávněný vstup do databáze vložením SQL kódu do formuláře. V~případě, že se útočníkovi podaří získat strukturu databáze, může jednoduše manipulovat s~daty uloženými v~databázi \cite{bib:SQL_injection}. Data získaná pomocí formuláře by tedy měla být zkontrolována (např.~aplikačním firewallem), zda neobsahují škodlivý (spustitelný) kód a~předejít útokům tohoto typu.
 
 \subsection*{Cross-Site Scripting}
 Cross-Site Scripting (XSS) je typ útoku, kdy je škodlivý kód injektován na neškodný a~důvěryhodný web tak, že se útočník chová jako normální uživatel, avšak ukládá do webové databáze škodlivý skript, který je poté spuštěn. K~útoku dochází, když útočník získá kontrolu nad HTML obsahem, který je doručován uživateli webové aplikace, protože může do tohoto obsahu aplikace přidat vlastní JavaScriptový kód. Útočník může využít uživatelův účet k~získání citlivých informací, k~šíření spamu apod. \cite{bib:XSS, bib:XSS_vut}. Ochrana webového serveru musí zabránit snaze nepovolených uživatelů o~jakoukoli manipulaci se soubory na serveru.
 
 \subsection*{Broken Authentication and Session Management}
-Příčinou tohoto útoku je chybná autentizace a~správa relace, protože může dojít k~odcizení uživatelských účtu. Obvyklá příčina je špatné schéma správy relací a~autentizace uživatelů (např.~nevhodný způsob obnovy hesla) \cite{bib:XSS_vut}. Automatičtí roboti mohou tento nedostatek webových stránek využívat např. K~získání přístupu do cizího účtu.
+Příčinou tohoto útoku je chybná autentizace a~správa relace, protože může dojít k~odcizení uživatelských účtu. Obvyklá příčina je špatné schéma správy relací a~autentizace uživatelů (např.~nevhodný způsob obnovy hesla) \cite{bib:XSS_vut}. Automatičtí roboti mohou tento nedostatek webových stránek využívat např.~K~získání přístupu do cizího účtu.
 
 \subsection*{Sensitive Data Exposure}
 Veškerá citlivá data, která se ukládají do webové databáze, by měla být důkladně zašifrována. Pokud tomu tak není a~útočník ovládne databázi, získá přístup k~citlivým datům, která jsou v~databázi uložena. Tento útok může mít vážné dopady, protože dokáže získat citlivé údaje a~zneužít jich. Je tedy důležité udržovat data na serveru zašifrovaná a~přístup k nim jistit aplikačním firewallem.
@@ -312,7 +312,7 @@ Analýza chování je složitá disciplína, která vyplývá ze~strojového uč
 Velké firmy, jako je Amazon či CloudFare, používají k~zachycení botů sítě honeynets (překlad:  \textit{\uv{medové sítě}}) po celém světě, které poskytují aktualizované informace o~botech aplikačním firewallům ve svých sítích. Typická stránka, která slouží jako honeypot (překlad:  \textit{\uv{hrnec medu}}), je stránka obsahující velké množství zdánlivě užitečných informací, čímž se stává lákavější pro automatické boty, kteří tuto stránku navštíví za účelem získání velkého množství kvalitních dat. 
 
 \section{Úprava HTML dokumentu}
-Většina automatických botů, které se snaží o~získání dat z~webové stránky, má přesně danou pozici a~dokonale zná HTML (viz~\ref{sec:html}) strukturu navštívené stránky. Na základě této znalosti dokážou automatičtí boti získávat požadovaná data. Při změně této struktury (např. hlubší zanoření HTML elementů) může dojít k neschopnosti automatického robota získat požadovaná data.
+Většina automatických botů, které se snaží o~získání dat z~webové stránky, má přesně danou pozici a~dokonale zná HTML (viz~\ref{sec:html}) strukturu navštívené stránky. Na základě této znalosti dokážou automatičtí boti získávat požadovaná data. Při změně této struktury (např.~hlubší zanoření HTML elementů) může dojít k neschopnosti automatického robota získat požadovaná data.
 
 \subsection*{Změna identifikátorů značek HTML}
 Jedna z~možností, jak se bránit automatickému přístupu, je \textit{změnit jména značek v~HTML dokumentu}. Tato ochrana vychází z~předpokladu, že si bot stáhne webovou stránku a~poté z~ní extrahuje data, která se nacházejí na předem určených místech. Tato místa jsou označena unikátními jmény, díky nimž dokáže bot najít požadovaná data. V~případě, jsou tato jména změněna na náhodnou sekvenci písmen či čísel\footnote{Provozovatel má systém, který mu udržuje původní smysluplná jména značek, přičemž automaticky generuje HTML dokument s~náhodnými jmény značek a~který pravidelně aktualizuje na webovém serveru.}, bot nedokáže najít požadovaná data a~ztrácí zájem získávat data z~tohoto serveru. Tento způsob ochrany zpravidla nemá na normálního uživatele zásadní dopad.
@@ -333,7 +333,7 @@ Z výše uvedeného je zřejmé, že neexistuje dokonalá ochrana a~je poměrně
 \label{chap:auto_approach_to_web}
 V této kapitole je popsáno jádro této práce a~její možné alternativy. Jak název napovídá, jde o~naprogramovaný automatický přístup na webové stránky, z~něhož má prospěch ve většině případů provozovatel bota\footnote{Pojmem bot je myšlen automat, který automaticky přistupuje na webové stránky.}, avšak v~některých případech může prosperovat i~provozovatel webového serveru. Bot je tedy program, který dle daných podmínek pracuje s~obsahem na webu ve snaze simulovat normálního uživatele. Jinými slovy, bota si lze představit jako člověka, který pracuje s~webovou stránkou (pracuje s~daty na dané stránce) podle určitých pravidel nebo naučených postupů. Pokud webový server chce umožnit přístup botům, tak poskytuje \textit{speciální rozhraní API}, přes něž mohou tyto automaty komunikovat. V~opačném případě je nutné stránky navštěvovat jiným způsobem~--~\textit{webscrapingem}.
 
-Automatický přístup na web (tedy i~sociální sítě) lze tedy realizovat více způsoby. Některé metody jsou provozovány se~souhlasem provozovatele a~jejich použití je v~souladu se~zájmu dané stránky. Tento způsob se nazývá \textit{API} a~věnuje se mu kapitola \ref{sec:api}, nicméně cílem této práce není popsat tuto metodu. Na druhé straně proti API existuje metoda, jak získávat data z~webových stránek bez použití API, nazývaná \textit{webscraping}. Websraping nabízí oproti API větší škálu využití a~proto bývá využíván pro účely, které jsou nežádoucí pro danou sociální síť (provoz přes API lze kontrolovat a~popř. zablokovat). Velká nevýhoda API je totiž omezené spektrum možností, které se s~API dají provádět~--~provozovatel sociální sítě nemá pochopitelně zájem o~to, aby se na jeho síti šířil SPAM či jiné podobné věci. Tato práce se zabývá zejména přístupem na webovou stránku pomocí webscrapingu.
+Automatický přístup na web (tedy i~sociální sítě) lze tedy realizovat více způsoby. Některé metody jsou provozovány se~souhlasem provozovatele a~jejich použití je v~souladu se~zájmu dané stránky. Tento způsob se nazývá \textit{API} a~věnuje se mu kapitola~\ref{sec:api}, nicméně cílem této práce není popsat tuto metodu. Na druhé straně proti API existuje metoda, jak získávat data z~webových stránek bez použití API, nazývaná \textit{webscraping}. Websraping nabízí oproti API větší škálu využití a~proto bývá využíván pro účely, které mohou být nežádoucí pro danou sociální síť (provoz přes API lze kontrolovat a~popř.~zablokovat). Velká nevýhoda API je totiž omezené spektrum možností, které se s~API dají provádět~--~provozovatel sociální sítě nemá pochopitelně zájem o~to, aby se na jeho síti šířil SPAM či jiné podobné věci. Tato práce se zabývá zejména přístupem na webovou stránku pomocí webscrapingu.
 
 \section{API}
 \label{sec:api}
@@ -347,19 +347,19 @@ Application Programming Interface (API) je obecný název pro rozhraní programo
 \end{figure}
 
 \subsection*{Third-party API}
-Velké firmy, jako jsou Facebook, Google či PayPal, poskytují ostatním vývojářům jiných webových stránek svoje rozhraní API. To slouží k~využívání dat, která firma poskytující API vlastní. Uživatel využívá Thirt-party API například při vytváření účtu na webové stránce, kdy tato webová stránka požádá o~data o~uživateli Facebook, a~ten následně poskytne data (např. jméno a~profilovou fotku) o~uživateli (pochopitelně se souhlasem daného uživatele) \cite{bib:third_party_API}. To výrazně zjednoduší průběh vytváření nového účtu, protože uživatel vytvoří účet doslova jedním kliknutím. Další přihlašování probíhají také jednodušeji, protože se uživatel může přihlásit například pomocí účtu na Facebooku a~nemusí si pamatovat žádné další heslo.
+Velké firmy, jako jsou Facebook, Google či PayPal, poskytují ostatním vývojářům jiných webových stránek svoje rozhraní API. To slouží k~využívání dat, která firma poskytující API vlastní. Uživatel využívá Thirt-party API například při vytváření účtu na webové stránce, kdy tato webová stránka požádá o~data o~uživateli Facebook, a~ten následně poskytne data (např.~jméno a~profilovou fotku) o~uživateli (pochopitelně se souhlasem daného uživatele) \cite{bib:third_party_API}. To výrazně zjednoduší průběh vytváření nového účtu, protože uživatel vytvoří účet doslova jedním kliknutím. Další přihlašování probíhají také jednodušeji, protože se uživatel může přihlásit například pomocí účtu na Facebooku a~nemusí si pamatovat žádné další heslo.
 
 \section{Webscraping}
 \label{sec:webscraping}
-Jde o~aktivitu, která se snaží dostat data z~webových stránek\footnote{Ačkoli se tato práce zabývá automatickým přístupem na sociální sítě, je v~této kapitole diskutováno obecně o~automatickém přístupu na webové stránky (sociální sítě jsou podmnožina webových stránek).} pomocí \textit{automatického programu}. Cílem webscrapingu je nahradit co nejdůvěryhodněji webový prohlížeč, simulovat uživatelskou interakci a~překonat ochranu proti automatickému přístupu (pokud nějaká existuje). Data, která jsou tímto způsobem získána, může sám webscrapingový program nebo jeho majitel dále upravovat či s~nimi nějak dále pracovat. Tento způsob získávání dat probíhá relativně často bez vědomí vlastníka webové stránky, ze~které jsou data dolována. Webové servery se snaží tomuto přístupu bránit, k~čemuž mají mnoho důvodů, nicméně je nutno dodat, že ochrany proti automatickému přístupu bývají neefektivní vůči vynaloženým nákladům. Pokud ochrana webového serveru odhalí automatický přístup, má několik možností, jak se zachovat:
+Jde o~aktivitu, která se snaží dostat data z~webových stránek\footnote{Ačkoli se tato práce zabývá automatickým přístupem na sociální sítě, je v~této kapitole diskutováno obecně o~automatickém přístupu na webové stránky (sociální sítě jsou podmnožina webových stránek).} pomocí \textit{automatického programu}. Cílem webscrapingu je nahradit co nejdůvěryhodněji webový prohlížeč, simulovat uživatelskou interakci a~překonat ochranu proti automatickému přístupu (pokud nějaká existuje). Data, která jsou tímto způsobem získána, může sám webscrapingový program nebo jeho majitel dále upravovat či s~nimi nějak dále pracovat. Tento způsob získávání dat probíhá relativně často bez vědomí vlastníka webové stránky, ze~které jsou data dolována. Webové servery se snaží tomuto přístupu bránit, k~čemuž mají mnoho důvodů, nicméně je nutno dodat, že ochrany proti automatickému přístupu bývají neefektivní vůči vynaloženým nákladům. Pokud ochrana webového serveru odhalí automatický přístup, má několik možností, jak se zachovat~--~tyto možnosti jsou například:
 
 \begin{itemize}
-  \item \textbf{Nezasahovat}~--~nechat automatického bota pokračovat ve své činnosti
-  \item \textbf{Znesnadnit provoz}~--~poskytnout botovi stránku s~jiným nebo upraveným obsahem nebo změnit HTML strukturu stránky
-  \item \textbf{Zakázat provoz}~--~zablokovat provoz z~IP adresy či webového prohlížeče nebo zablokovat uživatelský účet (pokud existuje)
+  \item \textbf{Nezasahovat}~--~nechat automatického bota pokračovat ve své činnosti.
+  \item \textbf{Obfuskovat\footnote{\textit{Obfuskace} je proces, při kterém se upraví zdrojový kód tak, aby se stal (téměř) nečitelným, ale jeho funkčnost zůstane zachována. Používá se například jako ochrana vlastnictví autora \cite{bib:obfuskace}.} obsah}~--~poskytnout automatickému botovi stránku s~upravenou strukturou \textit{zdrojového kódu} a~tím mu znesnadnit čtení obsahu.
+  \item \textbf{Zakázat provoz}~--~zablokovat provoz z~IP adresy či webového prohlížeče nebo zablokovat uživatelský účet (pokud existuje).
 \end{itemize}
 
-Jedním z~důvodů, proč se bránit webscrapingu, je vytíženost serveru. Automatický server totiž může provádět takové operace, že se webová stránka stane pro ostatní uživatele stane obtížněji použitelná (např. se pomalejší odezva). Dalším důvodem, proč se bránit webscrapingu, je ochrana dat, která jsou na stránce obsažena. Některá data jsou sice veřejně dostupná, ale je nežádoucí, aby byla získávána automaticky. Struktura získávání dat webscrapingem je znázorněna na obrázku~\ref{img:webscraping}.
+Jedním z~důvodů, proč se bránit webscrapingu, je vytíženost serveru. Automatický server totiž může provádět takové operace, že se webová stránka stane pro ostatní uživatele stane obtížněji použitelná (např.~pomalejší odezva). Dalším důvodem, proč se bránit webscrapingu, je ochrana dat, která jsou na stránce obsažena. Některá data jsou sice veřejně dostupná, ale je nežádoucí, aby byla získávána automaticky. Struktura získávání dat webscrapingem je znázorněna na obrázku~\ref{img:webscraping}.
 
 \begin{figure}[hbt]
 	\centering
@@ -376,7 +376,7 @@ Každá sociální síť si chce vytvořit či udržet dobrou pověst a~jejím h
 
 \section{Selenium}
 \label{sec:selenium}
-Selenium je sada nástrojů publikovaných ve formě otevřeného kódu (\textit{opensource}) sloužících pro automatizaci webových prohlížečů a~testování webových aplikací. Dokáže věrně simulovat webový prohlížeč Google Chrome (Selenium WebDriver, více \ref{sec:selenium_webdriver}) a~kvůli tomu je často využíván právě pro účely webscrapingu. Selenium používá velké množství firem, mezi něž patří např.~MIT, Google, Fitbit a~další \cite{bib:selenium_automatizace}. Sada nástrojů Selenium je napsána v~jazyce Java, čímž umožňuje použití na mnoha platformách. Tato sada nástrojů je velmi flexibilní z~hlediska použitého programovacího jazyka, protože podporuje jazyky jako Perl, Python, Ruby, Java, C\#, PHP a~další \cite{bib:selenium_automatizace}.
+Selenium je sada nástrojů publikovaných ve formě otevřeného kódu (\textit{opensource}) sloužících pro automatizaci webových prohlížečů a~testování webových aplikací. Dokáže věrně simulovat webový prohlížeč Google Chrome (Selenium WebDriver, více~\ref{sec:selenium_webdriver}) a~kvůli tomu je často využíván právě pro účely webscrapingu. Selenium používá velké množství firem, mezi něž patří např.~MIT, Google, Fitbit a~další \cite{bib:selenium_automatizace}. Sada nástrojů Selenium je napsána v~jazyce Java, čímž umožňuje použití na mnoha platformách. Tato sada nástrojů je velmi flexibilní z~hlediska použitého programovacího jazyka, protože podporuje jazyky jako Perl, Python, Ruby, Java, C\#, PHP a~další \cite{bib:selenium_automatizace}.
 
 Selenium je kompatibilní se všemi nejpoužívanějšími prohlížeči, čímž se stává atraktivnější pro testování webových aplikací. Je totiž důležité, aby tyto aplikace běžely správně na všech používaných webových prohlížečích. Sada nástrojů je open-source, je tedy zdarma pro všechny uživatele.
 
@@ -433,7 +433,7 @@ Selenium Grid není příliš odlišný od ostatních nástrojů v~sadě Seleniu
 
 \chapter{Testování aplikačních firewallů sociálních sítí}
 \label{chap:app_firewalls_tests}
-Sociální sítě mají pravděpodobně implementovány nejpokročilejší a~nejnovější ochrany proti automatickým botům, a~proto je vhodné jejich studium. Sociální sítě totiž nemají z~jistých důvodů uvedených v~předchozích kapitolách zájem o~přístup automatických botů, nicméně na druhou stranu jsou právě sociální sítě jejich častým cílem a~sociální sítě se jim musí bránit. Znalost principu těchto aplikačních firewallů může být užitečná v~implementaci ochran vlastních webových stránek či jiných veřejných služeb, které mohou být obětí automatických botů.
+Sociální sítě mají pravděpodobně implementovány jedny z~nejpokročilejších ochran proti automatickým botům, a~proto je vhodné jejich studium. Sociální sítě totiž nemají z~jistých důvodů uvedených v~předchozích kapitolách zájem o~přístup automatických botů, nicméně na druhou stranu jsou právě sociální sítě jejich častým cílem a~sociální sítě se jim musí bránit. Znalost principu těchto aplikačních firewallů může být užitečnou inspirací pro~návrh nebo vylepšení ochran vlastních webových stránek či jiných veřejných služeb, které mohou být obětí automatických botů.
 
 Kapitola začíná ukázkou chování skutečných uživatelů na sociálních sítích a~dále popisuje výsledky testování aktuálně používaných ochran proti automatickému přístupu. Poté popisuje možnosti přístupu na sociální sítě přes aplikační rozhraní API a~jeho srovnání s~webscrapingem. Testované sociální sítě jsou:
 
@@ -445,12 +445,12 @@ Kapitola začíná ukázkou chování skutečných uživatelů na sociálních s
 \end{itemize}
 
 \section{Skutečné chování uživatelů na sociálních sítích}
-Každý uživatel navštěvující určitou sociální síť má obvykle ve zvyku provádět jednotlivé akce postupně ve stejném pořadí. V~případech, kdy uživatel navštíví sociální síť kvůli nějakému účelu, např.~poslání zprávy či vyhledání informace,\footnote{Mnoho uživatelů totiž navštěvuje sociální síť bezúčelně např.~kvůli závislosti.}, většinou svou posloupnost prvních akcí obejde. Testy popsané v~tabulkách č.~\ref{tab:soc_behaviour_P1},~\ref{tab:soc_behaviour_P2} a~\ref{tab:soc_behaviour_P3} popisují sekvence typického chování na sociálních sítích 3~osob. Tyto testy byly prováděny kvůli implementaci opatření navrhovaném v~této práci spočívající v~totožném chování po každém přihlášení. Testování chování osoby je prováděno pouze na platformách a~sociálních sítích, které daná osoba pravidelně navštěvuje. Většina časů v~tabulce je uvedena v~\textit{sekundách} a~časy jsou \textit{přibližné} (někdy může daná akce trvat kratší dobu, někdy delší dobu). Časy znamenají dobu uplynulou od spuštění sociální sítě, nikoli od poslední akce.
+Každý uživatel navštěvující určitou sociální síť má obvykle ve zvyku provádět jednotlivé akce postupně ve stejném pořadí. V~případech, kdy uživatel navštíví sociální síť kvůli nějakému účelu, např.~poslání zprávy či vyhledání informace\footnote{Mnoho uživatelů totiž navštěvuje sociální síť bezúčelně např.~kvůli závislosti.}, většinou svou posloupnost prvních akcí obejde. Testy popsané v~tabulkách č.~\ref{tab:soc_behaviour_P1},~\ref{tab:soc_behaviour_P2} a~\ref{tab:soc_behaviour_P3} popisují sekvence typického chování na sociálních sítích 3~osob. Tyto testy byly prováděny kvůli implementaci opatření navrhovaném v~této práci spočívající v~totožném chování po každém přihlášení. Testování chování osoby je prováděno pouze na platformách a~sociálních sítích, které daná osoba pravidelně navštěvuje. Většina časů v~tabulce je uvedena v~\textit{sekundách} a~časy jsou \textit{přibližné} (někdy může daná akce trvat kratší dobu, někdy delší dobu). Časy znamenají dobu uplynulou od spuštění sociální sítě, nikoli od poslední akce.
 
 \definecolor{gray}{cmyk}{0,0.0,0.0,0.26}
 \begin{table}[htbp]
   \begin{tabularx}{\linewidth}{
-    |>{\centering\arraybackslash\hsize=0.5\hsize}X|% Socialni sit a platforma
+    |>{\centering\arraybackslash\hsize=0.5\hsize}X|% Socialni sit a~platforma
     >{\raggedright\arraybackslash\hsize=1.6\hsize}X|% Prvni akce
     >{\centering\arraybackslash\hsize=0.5\hsize}X|% Cas 1
     >{\raggedright\arraybackslash\hsize=1.6\hsize}X|% Druha akce
@@ -468,7 +468,7 @@ Každý uživatel navštěvující určitou sociální síť má obvykle ve zvyk
 \hline
 \textit{YouTube} desktop & Začne vyhledávat video s~požadovaným obsahem & 12~s & Prohlíží nalezená videa & 20~s & Na desktopu chodí vyhledávat videa pouze pokud potřebuje najít určitý obsah \\
 \hline
-\textit{Instagram} mobil & Prohlédne si přibližně 10~prvních stories & 50~s & Přečte si zprávy, popř. na ně odepíše & 70~s & \\
+\textit{Instagram} mobil & Prohlédne si přibližně 10~prvních stories & 50~s & Přečte si zprávy, popř.~na ně odepíše & 70~s & \\
 \hline
 
 \end{tabularx}
@@ -479,7 +479,7 @@ Každý uživatel navštěvující určitou sociální síť má obvykle ve zvyk
 
 \begin{table}[htbp]
   \begin{tabularx}{\linewidth}{
-    |>{\centering\arraybackslash\hsize=0.5\hsize}X|% Socialni sit a platforma
+    |>{\centering\arraybackslash\hsize=0.5\hsize}X|% Socialni sit a~platforma
     >{\raggedright\arraybackslash\hsize=1.6\hsize}X|% Prvni akce
     >{\centering\arraybackslash\hsize=0.5\hsize}X|% Cas 1
     >{\raggedright\arraybackslash\hsize=1.6\hsize}X|% Druha akce
@@ -502,7 +502,7 @@ Každý uživatel navštěvující určitou sociální síť má obvykle ve zvyk
 
 \begin{table}[htbp]
   \begin{tabularx}{\linewidth}{
-    |>{\centering\arraybackslash\hsize=0.5\hsize}X|% Socialni sit a platforma
+    |>{\centering\arraybackslash\hsize=0.5\hsize}X|% Socialni sit a~platforma
     >{\raggedright\arraybackslash\hsize=1.6\hsize}X|% Prvni akce
     >{\centering\arraybackslash\hsize=0.5\hsize}X|% Cas 1
     >{\raggedright\arraybackslash\hsize=1.6\hsize}X|% Druha akce
@@ -539,7 +539,7 @@ Každá vybraná sociální síť byla otestována 5 testy. První dva jsou \tex
   \item Test kódování identifikátorů HTML elementů (manuálně pomocí prohlížeče Google Chrome)
 \end{itemize}
 
-Výsledky testů jsou uvedeny v~jednotlivých sekcích zvlášť pro každou testovanou sociální síť. V~tabulkách je navíc uvedeno, zda sociální síť testuje lidskou inteligenci pomocí CAPTCHA (viz \ref{sec:captcha}), protože se jedná o~jednoduchý a~efektivní způsob, jak zabránit vstup automatickým botům.
+Výsledky testů jsou uvedeny v~jednotlivých sekcích zvlášť pro každou testovanou sociální síť. V~tabulkách je navíc uvedeno, zda sociální síť testuje lidskou inteligenci pomocí CAPTCHA (viz~\ref{sec:captcha}), protože se jedná o~jednoduchý a~efektivní způsob, jak zabránit vstup automatickým botům.
 
 
 \subsection*{Automatický test stejného chování}
@@ -550,7 +550,7 @@ Selenium WebDriver po spuštění otevřel nové okno prohlížeče Google Chrom
 
 \subsection*{Automatický test hromadného přístupu}
 \label{sec:dos_test}
-Druhý test zkoušel (opět s~použitím Selenium WebDriver) stejně jako první test přihlášení a~kliknutí u~prvního příspěvku na \textit{To se mi líbí}, nicméně tyto testy nebyly spouštěny postupně, ale v~jeden čas. Byl tedy spuštěn skript, který spustil 10\footnote{Více testů najednou nebylo možné spustit z~důvodu výkonu testovací stanice.} testů najednou, tedy podobný průběh jako při DoS útoku (viz~\ref{sec:DoS_force}). Účel analýzy byl ověřit, zda sociální sítě dokáží tuto aktivitu odhalit, popř. jak se jí brání.
+Druhý test zkoušel (opět s~použitím Selenium WebDriver) stejně jako první test přihlášení a~kliknutí u~prvního příspěvku na \textit{To se mi líbí}, nicméně tyto testy nebyly spouštěny postupně, ale v~jeden čas. Byl tedy spuštěn skript, který spustil 10\footnote{Více testů najednou nebylo možné spustit z~důvodu výkonu testovací stanice.} testů najednou, tedy podobný průběh jako při DoS útoku (viz~\ref{sec:DoS_force}). Účel analýzy byl ověřit, zda sociální sítě dokáží tuto aktivitu odhalit, popř.~jak se jí brání.
 
 \subsection*{Test ověřování \texttt{User-Agent} hodnoty}
 Tento test ověřoval, zda sociální sítě kontrolují správnost hodnoty \texttt{User-Agent}. Využívá skriptu z~prvního testu, ale je změněna HTML hlavička a~prohlížeč je spuštěn pouze jednou, nikoli $50\times$. Cíl testu byl stejný jako v~předchozích dvou testech, tedy kliknout na \textit{To se mi líbí}, ale žádost měla upravené hodnotu v~HTTP hlavičcce \texttt{User-Agent} na hodnotu \texttt{False\_user\_agent}. Příklad korektní hodnoty je popsán v~části~\ref{sec:user_agent}. Ačkoli se jedná o~poměrně jednoduchý test opatření, které lze jednoduše obejít, tak dokáže odfiltrovat alespoň triviální pokusy o~automatický přístup.
@@ -559,7 +559,7 @@ Tento test ověřoval, zda sociální sítě kontrolují správnost hodnoty \tex
 Anonymizační systém Tor a~anonymní prohlížeč Torbrowser je popsán v~sekci~\ref{sec:tor_browser}. Jde tedy o~test přístupu z~různých IP adres, které jsou v~mnoha případech zařazeny do \textit{Black listů} nebo \textit{Gray listů} a~aplikační firewall tím dokáže jednoduše odhalit podezřelou aktivitu. Každou IP adresu lze alespoň přibližně lokalizovat, tedy pokud se jeden uživatel přihlašuje na sociální síť z~různých oblastí během krátkého času, aplikační firewall přístup zpravidla vždy zablokuje. Princip analýzy přístupu pomocí prohlížeče Tor spočívá jen v~přihlášení se na sociální síť.
 
 \subsection*{Test kódování identifikátorů HTML elementů}
-Každá načítaná stránka ve webovém prohlížeči se načítá pomocí HTML jazyka (viz~\ref{sec:html}). Webscrapingové automaty často pracují právě s~HTML strukturou a~jednotlivé elementy poznávají podle jedinečných HTML identifikátorů k~získání dat, které tento HTML element obsahuje. V~testu je ověřeno, zda webová stránka používá intuitivní názvy HTML identifikátorů (např. \texttt{heading}) nebo zda používá nějaké kódování (např. \texttt{0h4jek3iS}). Testy změny jmen identifikátorů byly ověřeny ručně pomocí nástroje Google Developers (více zde~\ref{sec:chrome_devtools}).
+Každá načítaná stránka ve webovém prohlížeči se načítá pomocí HTML jazyka (viz~\ref{sec:html}). Webscrapingové automaty často pracují právě s~HTML strukturou a~jednotlivé elementy poznávají podle jedinečných HTML identifikátorů k~získání dat, které tento HTML element obsahuje. V~testu je ověřeno, zda webová stránka používá intuitivní názvy HTML identifikátorů (např.~\texttt{heading}) nebo zda používá nějaké kódování (např.~\texttt{0h4jek3iS}). Testy změny jmen identifikátorů byly ověřeny ručně pomocí nástroje Google Developers (více zde~\ref{sec:chrome_devtools}).
 
 \section{Facebook}
 Nejpopulárnější sociální síť Facebook\footnote{\href{https://www.facebook.com}{https://www.facebook.com}} je platforma, která byla původně plánovaná jako studentská školní síť. Postupem času se stávala známější a~v dnešní době ji zná takřka každý. Umožňuje sdílet pocity uživatele či fotky, dopisovat si s~přáteli a~další podobné sociální aktivity. Facebook je velmi silný nástroj pro šíření různých aktivit či názorů, kvůli čemuž je využíván či zneužíván mnoha populisty a~vlivnými lidmi.
@@ -796,7 +796,7 @@ Kapitola se věnuje použitému programovacímu jazyku a~technologiím, které b
 Pro vývoj aplikačního firewallu byl vybrán jazyk \textit{Node.js}, který se často používá pro tvorbu webových aplikací. Node.js umožňuje jednoduchou implementaci potřebných vlastností jako je sledování chování uživatele, sledování síťového provozu a~propojení s~databází. Pro správu dat je využit databázový systém \textit{MongoDB}. Mezi největší výhody tohoto databázového systému patří jeho rychlost, která je pro účely aplikačního firewallu nezbytná.
 
 \subsection*{Výhody jazyka Node.js}
-Node.js je jazyk založený na programovacím jazyce JavaScript (více zde \ref{sec:java_script}) a~jeho využití spočívá zejména pro implementaci backendu (funkčnosti) webových serverů. Oproti klasickému JavaScriptu se však liší v~tom, že kód je vykonáván právě na straně serveru, nikoliv na straně klienta. Největší výhoda Node.js je provádění asynchronních operací, která se projeví zejména v~rychlosti komunikace s~databází. Protože sociální sítě mají počet uživatelů v~řádech desítek až stovek milionů, je klíčové, aby byla tato vlastnost splněná. Node.js je vysoce škálovatelný, což je pro účely aplikačního firewallu taktéž velmi žádoucí.
+Node.js je jazyk založený na programovacím jazyce JavaScript (více zde~\ref{sec:java_script}) a~jeho využití spočívá zejména pro implementaci backendu (funkčnosti) webových serverů. Oproti klasickému JavaScriptu se však liší v~tom, že kód je vykonáván právě na straně serveru, nikoliv na straně klienta. Největší výhoda Node.js je provádění asynchronních operací, která se projeví zejména v~rychlosti komunikace s~databází. Protože sociální sítě mají počet uživatelů v~řádech desítek až stovek milionů, je klíčové, aby byla tato vlastnost splněná. Node.js je vysoce škálovatelný, což je pro účely aplikačního firewallu taktéž velmi žádoucí.
 
 \subsection*{Nevýhody jazyka Node.js}
 Mezi nevýhody jazyka Node.js patří právě asynchronní provádění některých operací, což může způsobit nekonzistence v~databázi, což je třeba ošetřit za cenu méně přehledného kódu. Další nevýhoda je nutnost vytvořit prostředí (tzn. správně nastavit webový server) pro běh kódu Node.js a~toto prostředí udržovat dobře zabezpečené. Výkon webového serveru je samozřejmě třeba přizpůsobovat počtu uživatelů sociální sítě, čímž úměrně tomu rostou provozní náklady.
@@ -807,7 +807,7 @@ MongoDB je databáze typu NoSQL, která je tvořena tzv. \textit{kolekcemi} (nik
 \section{Simulovaná sociální síť}
 Síť, která představuje reálnou sociální síť, se jmenuje \textit{Socnet}. Protože v~této práci nejde o~implementaci funkční sociální sítě, ale o~způsob implementace aplikačního firewallu, chybí zde mnoho prvků, které by v~reálné sociální síti neměly chybět (např.~vytváření uživatelů).
 
-Na úvodní stránce této sítě se uživatel může přihlásit pomocí svého jména a~hesla. Referenční uživatelské jméno je '\texttt{user}' a~heslo je '\texttt{user}'. Po přihlášení uživatel vidí dva příspěvky, které jsou staticky vytvořeny\footnote{Na reálné sociální síti by algoritmus uživateli zobrazil nejvhodnější příspěvek.}. Uživatel může číst příspěvky ostatních uživatelů, klikat na \textit{To se mi líbí}~na libovolném příspěvku či napsat text do pole pro komentáře. Snímána jsou pouze uživatelská kliknutí na stránce pro účely aplikačního firewallu, takže zanechaný komentář či kliknutí na \textit{To se mi líbí} jsou při každém přihlášení resetovány. Po dokončení práce se může uživatel odhlásit a~tím se dostat zpět na přihlašovací stránku. Přihlašovací stránka sítě Socnet je zobrazena na obrázku \ref{img:socnet_intro}.
+Na úvodní stránce této sítě se uživatel může přihlásit pomocí svého jména a~hesla. Referenční uživatelské jméno je '\texttt{user}' a~heslo je '\texttt{user}'. Po přihlášení uživatel vidí dva příspěvky, které jsou staticky vytvořeny\footnote{Na reálné sociální síti by algoritmus uživateli zobrazil nejvhodnější příspěvek.}. Uživatel může číst příspěvky ostatních uživatelů, klikat na \textit{To se mi líbí}~na libovolném příspěvku či napsat text do pole pro komentáře. Snímána jsou pouze uživatelská kliknutí na stránce pro účely aplikačního firewallu, takže zanechaný komentář či kliknutí na \textit{To se mi líbí} jsou při každém přihlášení resetovány. Po dokončení práce se může uživatel odhlásit a~tím se dostat zpět na přihlašovací stránku. Přihlašovací stránka sítě Socnet je zobrazena na obrázku~\ref{img:socnet_intro}.
 
 \begin{figure}[H]
 	\centering
@@ -816,10 +816,10 @@ Na úvodní stránce této sítě se uživatel může přihlásit pomocí svého
 	\label{img:socnet_intro}
 \end{figure}
 
-\section{Návrh aplikačního firewallu}
+\section{Návrh detekce botů aplikačním firewallem}
 Tato sekce obsahuje podrobný popis jednotlivých opatření, které jsou implementovány v~rámci aplikačního firewallu Socnetu. Návrh řešení spočívá \textit{zejména} v~odhalování stejného uživatelského chování. Tento postup byl navrhnut z~důvodu, že žádná sociální síť neodhalila naprosto identické chování $50\times$ za sebou v~jedné hodině, během které se navíc uživatel $50\times$ přihlásit. Ostatní navrhované testy také vychází z~analýzy aplikačních firewallů reálných sociálních sítí, protože většina firewallů sociálních sítí neodhaluje takový provoz, který je velmi podezřelý a~téměř jistě není v~souladu s~normálním lidským chováním.
 
-Každé opatření je implementováno samostatně a~pokud je vyhodnoceno jako platné, nevyhodnocují se žádná další opatření. Schéma prováděných testů je znázorněno v~diagramu \ref{img:program_scheme}.
+Každé opatření je implementováno samostatně a~pokud je vyhodnoceno jako platné, nevyhodnocují se žádná další opatření. Schéma prováděných testů je znázorněno v~diagramu~\ref{img:program_scheme}.
 
 \begin{figure}[ht]
 	\centering
@@ -828,11 +828,11 @@ Každé opatření je implementováno samostatně a~pokud je vyhodnoceno jako pl
 	\label{img:program_scheme}
 \end{figure}
 
-Sociální síť Socnet funguje jako klasická sociální síť a~normální uživatel by neměl jakkoli poznat, že je jeho aktivita snímána z~důvodu ochrany před automatickým přístupem. Kliknutím na tlačítko 'Přihlásit se' se spustí přihlašovací proces, tedy proběhne kontrola, zda-li není uživatelský provoz podezřelý a~vytvoří novou uživatelskou session (session viz \ref{sec:session}). Seznam kontrol, který probíhají při přihlašování, je uveden v~následujících podsekcích a~probíhá v~tomto pořadí. Kontroly pracují s~logy uživatelů, které se při každé uživatelské akci ukládají do databáze. Všechny časy, které představují intervaly, jsou hodnoty proměnných, které se dají nastavit v~souboru \texttt{config.js}\footnote{V reálné sociální síti by kontroly nebyly tak přísné.}.
+Sociální síť Socnet funguje jako klasická sociální síť a~normální uživatel by neměl jakkoli poznat, že je jeho aktivita snímána z~důvodu ochrany před automatickým přístupem. Kliknutím na tlačítko 'Přihlásit se' se spustí přihlašovací proces, tedy proběhne kontrola, zda-li není uživatelský provoz podezřelý a~vytvoří novou uživatelskou session (session viz~\ref{sec:session}). Seznam kontrol, který probíhají při přihlašování, je uveden v~následujících podsekcích a~probíhá v~tomto pořadí. Kontroly pracují s~logy uživatelů, které se při každé uživatelské akci ukládají do databáze. Všechny časy, které představují intervaly, jsou hodnoty proměnných, které se dají nastavit v~souboru \texttt{config.js}\footnote{V reálné sociální síti by kontroly nebyly tak přísné.}.
 
 \subsection*{Počet neúspěšných přihlášení}
 \label{sec:num_of_unsucc_logins}
-Jde o~ochranu, která chrání uživatele před prolomením hesla \textit{útokem hrubou silou} (viz \ref{sec:DoS_force}). Po každém pokusu o~přihlášení se špatným heslem je vytvořen log, jenž je uložen do databáze s~hodnotou \texttt{"action":"BadPassword"}. Pokud se uživatel snaží přihlásit do svého účtu více než $3\times$ za posledních 15~sekund se špatným heslem, je jeho IP adresa v~kombinaci s~\texttt{User-Agent} zablokována na náhodný čas v~intervalu <15, 35> sekund (v reálné sociální síti by pravděpodobně byla tato doba delší). Využívá se kombinace \texttt{User-Agent} a~IP adresa proto, aby zabránilo blokování ostatních uživatelů používajících stejnou IP adresu~--~uživatelský \texttt{User-Agent} v~lozích musí být shodný s~aktuální hodnotou \texttt{User-Agent} (jinými slovy se musí jednat o~přihlášení ze~stejného prohlížeče). Příklad upozornění uživatele o~zablokování IP adresy je vyobrazeno na obrázku \ref{img:blocked_IP}.
+Jde o~ochranu, která chrání uživatele před prolomením hesla \textit{útokem hrubou silou} (viz~\ref{sec:DoS_force}). Po každém pokusu o~přihlášení se špatným heslem je vytvořen log, jenž je uložen do databáze s~hodnotou \texttt{"action":"BadPassword"}. Pokud se uživatel snaží přihlásit do svého účtu více než $3\times$ za posledních 15~sekund se špatným heslem, je jeho IP adresa v~kombinaci s~\texttt{User-Agent} zablokována na náhodný čas v~intervalu <15,~35> sekund (v reálné sociální síti by pravděpodobně byla tato doba delší). Využívá se kombinace \texttt{User-Agent} a~IP adresa proto, aby zabránilo blokování ostatních uživatelů používajících stejnou IP adresu~--~uživatelský \texttt{User-Agent} v~lozích musí být shodný s~aktuální hodnotou \texttt{User-Agent} (jinými slovy se musí jednat o~přihlášení ze~stejného prohlížeče). Příklad upozornění uživatele o~zablokování IP adresy je vyobrazeno na obrázku~\ref{img:blocked_IP}.
 
 Pokud se uživatel pokusí přihlásit ze~stejného prohlížeče znovu v~tomto intervalu, tak se tento čas do nejbližšího přihlášení \textit{nezmění} ani \textit{není vytvořen žádný log}. 
 
@@ -846,9 +846,9 @@ Pokud se uživatel pokusí přihlásit ze~stejného prohlížeče znovu v~tomto 
 
 \subsection*{Počet úspěšných přihlášení}
 \label{sec:num_of_succ_logins}
-Jde o~ochranu, která zabraňuje více přihlášením v~intervalu 10~sekund na jeden uživatelský účet. Hlavní účel přihlašování se v~krátký časový interval na jeden uživatelský účet je odstavit síť DoS útokem. Jeden reálný uživatel není schopen přihlásit se v~rámci krátkého časového intervalu do svého účtu více než $5\times$, proto je jeho účet zablokován. Každé úspěšné přihlášení do sítě Socnet je zaznamenáno vytvořením logu s~hodnotou \texttt{"action":"login"}. Při přihlašování jsou načteny tyto záznamy mladší než 10~sekund. Pokud je počet těchto logů pro daného uživatele větší než 3, je uživatelský účet zablokován na náhodnou dobu v~intervalu <10, 30> sekund.
+Jde o~ochranu, která zabraňuje více přihlášením v~intervalu 10~sekund na jeden uživatelský účet. Hlavní účel přihlašování se v~krátký časový interval na jeden uživatelský účet je odstavit síť DoS útokem. Jeden reálný uživatel není schopen přihlásit se v~rámci krátkého časového intervalu do svého účtu více než $5\times$, proto je jeho účet zablokován. Každé úspěšné přihlášení do sítě Socnet je zaznamenáno vytvořením logu s~hodnotou \texttt{"action":"login"}. Při přihlašování jsou načteny tyto záznamy mladší než 10~sekund. Pokud je počet těchto logů pro daného uživatele větší než 3, je uživatelský účet zablokován na náhodnou dobu v~intervalu <10,~30> sekund.
 
-V případě, že se uživatel pokusí přihlásit v~tomto intervalu znovu, doba k~nejbližšímu přihlášení se \textit{aktualizuje} na náhodnou dobu v~intervalu <10, 30> sekund a~\textit{není vytvořen žádný log}. Nový čas se generuje z~důvodu aplikace co největší náhodnosti, která je pro automatického robota obtížněji překonatelná. Upozornění o~zablokovaném účtu je zobrazeno na obrázku \ref{img:too_many_logins}.
+V případě, že se uživatel pokusí přihlásit v~tomto intervalu znovu, doba k~nejbližšímu přihlášení se \textit{aktualizuje} na náhodnou dobu v~intervalu <10,~30> sekund a~\textit{není vytvořen žádný log}. Nový čas se generuje z~důvodu aplikace co největší náhodnosti, která je pro automatického robota obtížněji překonatelná. Upozornění o~zablokovaném účtu je zobrazeno na obrázku~\ref{img:too_many_logins}.
 
 \begin{figure}[H]
 	\centering
@@ -859,9 +859,9 @@ V případě, že se uživatel pokusí přihlásit v~tomto intervalu znovu, doba
 
 \subsection*{Kontrola hodnoty \texttt{User-Agent}}
 \label{sec:check_UA}
-Hlavička \texttt{User-Agent} obsahuje informace (více viz \ref{sec:user_agent}) o~uživatelské stanici. Jestliže není tato hodnota korektní, pravděpodobně se jedná o~podezřelý provoz, protože velmi jednoduchý bot tuto hodnotu neuvádí vůbec nebo má takovou hodnotu, kterou server neakceptuje. Aplikační firewall sítě Socnet kontroluje pomocí regulárního výrazu, zda uživatelský \texttt{User-Agent} odpovídá standardnímu tvaru pro hlavičku \texttt{User-Agent} a~zda neobsahuje nepovolené znaky, ale již nekontroluje samotný obsah.
+Hlavička \texttt{User-Agent} obsahuje informace (více viz~\ref{sec:user_agent}) o~uživatelské stanici. Jestliže není tato hodnota korektní, pravděpodobně se jedná o~podezřelý provoz, protože velmi jednoduchý bot tuto hodnotu neuvádí vůbec nebo má takovou hodnotu, kterou server neakceptuje. Aplikační firewall sítě Socnet kontroluje pomocí regulárního výrazu, zda uživatelský \texttt{User-Agent} odpovídá standardnímu tvaru pro hlavičku \texttt{User-Agent} a~zda neobsahuje nepovolené znaky, ale již nekontroluje samotný obsah.
 
-Pokud aplikační firewall odhalí neplatný \texttt{User-Agent}, \textit{nepovolí} uživateli přihlásit se z~tohoto prohlížeče. Varovná hláška je vyobrazena na obrázku \ref{img:bad_user_agent}.
+Pokud aplikační firewall odhalí neplatný \texttt{User-Agent}, \textit{nepovolí} uživateli přihlásit se z~tohoto prohlížeče. Varovná hláška je vyobrazena na obrázku~\ref{img:bad_user_agent}.
 
 \begin{figure}[H]
 	\centering
@@ -872,9 +872,9 @@ Pokud aplikační firewall odhalí neplatný \texttt{User-Agent}, \textit{nepovo
 
 \subsection*{Chování uživatele na sociální síti}
 \label{sec:identical_behaviour}
-Analýza uživatelského chování je nejpodstatnější a~nejsložitější ochrana sítě Socnet. Snaží se rozpoznávat identické chování uživatele od chvíle, kdy se přihlásí do okamžiku zrušení session, tzn. do odhlášení nebo expirace session. Funguje na principu zaznamenávání aktivity do databáze pomocí logů. Aplikační firewall tedy zaznamenává do databáze přihlášení uživatele a~dále všechna kliknutí. Log vzniklý kliknutím obsahuje hodnotu \texttt{"action":"click"} a~dále čas kliknutí a~jméno elementu, na který uživatel kliknul. V~okamžiku kliknutí na tlačítko 'Odhlásit se' se zaznamenává poslední log s~hodnotou \texttt{"action":"logout"}. Pokud automaticky expiruje session, nezaznamenává se žádný log.
+Analýza uživatelského chování je nejpodstatnější a~nejsložitější ochrana sítě Socnet. Snaží se rozpoznávat identické chování uživatele od chvíle, kdy se přihlásí do okamžiku zrušení session, tzn. do odhlášení nebo expirace session. Funguje na principu zaznamenávání aktivity do databáze pomocí logů. Aplikační firewall tedy zaznamenává do databáze okamžik přihlášení uživatele a~dále všechna jeho kliknutí. Log vzniklý kliknutím obsahuje hodnotu \texttt{"action":"click"} a~dále čas kliknutí a~jméno elementu, na který uživatel kliknul. V~okamžiku kliknutí na tlačítko 'Odhlásit se' se zaznamenává poslední log s~hodnotou \texttt{"action":"logout"}. Pokud automaticky expiruje session, nezaznamenává se žádný log.
 
-Každé toto chování je vyhodnoceno jako vzorec chování. Vzorec chování se tedy skládá z~minimálně jedné akce s~hodnotou \texttt{"action":"login"}. Další akce odpovídají jednotlivým kliknutím na stránce a~poslední log zpravidla obsahuje hodnotu \texttt{"action":"logout"}. Vzorec chování je uložen ve formátu JSON, jehož příklad je uveden zde \ref{json:behaviour_pattern}. 
+Každé toto chování je vyhodnoceno jako vzorec chování. Vzorec chování se tedy skládá z~minimálně jedné akce s~hodnotou \texttt{"action":"login"}. Další akce odpovídají jednotlivým kliknutím na stránce a~poslední log zpravidla obsahuje hodnotu \texttt{"action":"logout"}. Vzorec chování je uložen ve formátu JSON, jehož příklad je uveden zde~\ref{json:behaviour_pattern}. 
 
 \begin{figure}[H]
     \centering
@@ -897,7 +897,7 @@ Každé toto chování je vyhodnoceno jako vzorec chování. Vzorec chování se
 Při každém přihlášení se vyhodnocuje chování při posledním přihlášení následujícím způsobem:
 
 \begin{enumerate}
-  \item z~databáze se načtou všechny logy odpovídající poslední session a~z nich:
+  \item Z~databáze se načtou všechny logy odpovídající poslední session a~z nich:
   \begin{itemize}
       \item Je vytvořeno pole, do kterého jsou přidány názvy jednotlivých akcí, například \texttt{[login,~click,~logout]}.
       \item Je vytvořeno pole, do kterého jsou přidány časy akcí v~sekundách od přihlášení (zaokrouhleno na celé sekundy) včetně samotné akce přihlášení, například \texttt{[0,~2,~9]}.
@@ -905,14 +905,14 @@ Při každém přihlášení se vyhodnocuje chování při posledním přihláš
       \\ \texttt{[null,~like-post1,~logout]}.
       \item Poté se vytvoří příslušný vzorec chování s~těmito hodnotami.
   \end{itemize}
-  \item v~databázi se hledá identický vzorec chování ne starší 10~dnů a~pokud je nalezen, přičte se 1~k počtu opakování vzorců tohoto chování, v~opačném případě se uloží nově vytvořený vzorec a~hodnota \texttt{count} je nastavena na 1. Se vzorcem se dále pracuje v~bodě 3.
-  \item Pokud je počet opakování vzorce \texttt{count} větší než povolený počet\footnote{S narůstajícím počtem akcí je méně pravděpodobné, že se vzorec chování bude opakovat a~naopak~--~pokud vzorec obsahuje 2~akce, je více pravděpodobné, že se vzorec zopakuje, proto je počet dovolených opakování vzorce závislý na počtu akcí.} (závislost počtu akcí na povoleném počtu opakování je uvedena v~tabulce \ref{tab:allowed_num_of_repeatings}), uživatelský účet je zablokován na náhodnou dobu v~intervalu <10,30>~sekund. V~opačném případě je uživatel přihlášen.
-  \item Pokud byl uživatel zablokován (nebyl přihlášen), odečte se od počtu opakování \texttt{count} tohoto vzoru 1~(aby byla při příštím přihlášení splněna podmínka maximálního počtu opakování vzorce) a~uživatel musí počkat náhodný čas, aby se mohl přihlásit (podobně jako v~případě vícenásobného úspěšného přihlášení v~krátkém intervalu)~--~varovná hláška je zobrazena na obrázku \ref{img:bad_behaviour}.
+  \item V~databázi se hledá identický vzorec (příklad vzorce chování zde~\ref{json:behaviour_pattern}) chování ne starší 10~dnů a~pokud je nalezen, přičte se 1~k počtu opakování vzorců tohoto chování, v~opačném případě se uloží nově vytvořený vzorec a~hodnota \texttt{count} je nastavena na 1. Se vzorcem se dále pracuje v~bodě 3.
+  \item Pokud je počet opakování vzorce \texttt{count} větší než povolený počet\footnote{S narůstajícím počtem akcí je méně pravděpodobné, že se vzorec chování bude opakovat a~naopak~--~pokud vzorec obsahuje 2~akce, je více pravděpodobné, že se vzorec zopakuje, proto je počet dovolených opakování vzorce závislý na počtu akcí.} (závislost počtu akcí na povoleném počtu opakování je uvedena v~tabulce~\ref{tab:allowed_num_of_repeatings}), uživatelský účet je zablokován na náhodnou dobu v~intervalu <10,~30>~sekund. V~opačném případě je uživatel přihlášen.
+  \item Pokud byl uživatel zablokován (nebyl přihlášen), odečte se od počtu opakování \texttt{count} tohoto vzoru 1~(aby byla při příštím přihlášení splněna podmínka maximálního počtu opakování vzorce) a~uživatel musí počkat náhodný čas, aby se mohl přihlásit (podobně jako v~případě vícenásobného úspěšného přihlášení v~krátkém intervalu)~--~varovná hláška je zobrazena na obrázku~\ref{img:bad_behaviour}.
   \item Až náhodný čas blokace uplyne, uživateli bude umožněno se přihlásit, přičemž znovu budou provedeny všechny testy uživatele včetně tohoto testu.
 \end{enumerate}
 
 \noindent
-Pokud se uživatel v~době své blokace pokusí přihlásit znovu, doba k jeho nejbližšímu přihlášení se aktualizuje na náhodnou dobu v~intervalu <10,30>~sekund.
+Pokud se uživatel v~době své blokace pokusí přihlásit znovu, doba k jeho nejbližšímu přihlášení se aktualizuje na náhodnou dobu v~intervalu <10,~30>~sekund. Všechny hodnoty v tabulce~\ref{tab:allowed_num_of_repeatings} jsou pouze orientační a~je vhodné je optimalizovat tak, aby byl \textit{správně odhalen} automatický přístup, ale také tak, aby \textit{nebyl zablokován}normální uživatel.
 
 \begin{table}[ht]
 \centering
@@ -941,10 +941,10 @@ Pokud se uživatel v~době své blokace pokusí přihlásit znovu, doba k jeho n
 Funkčnost implementovaného aplikačního firewallu byla otestována pomocí nástroje Selenium WebDriver. Testy byly implementovány v~jazyce Python. Hromadné testy byly spouštěny skriptem v~jazyce Bash. Každá ochrana proti automatickému přístupu byla odzkoušena samostatným testem. Testy, které byly provedeny, jsou popsány v~podsekcích níže.
 
 \subsection*{Testování nesprávné hodnoty \texttt{User-Agent}}
-Hodnota \texttt{User-Agent} prohlížeče, který spouští Selenium, byla nastavena na hodnotu \\ \texttt{False\_user\_agent}. Testované opatření je popsáno v~sekci \ref{sec:check_UA}. Při použití nevalidní hodnoty \texttt{User-Agent} byl uživatel přesměrován na stránku s~upozorněním. Aplikační firewall sítě Socnet tento útok \textit{úspěšně odhalil}.
+Hodnota \texttt{User-Agent} prohlížeče, který spouští Selenium, byla nastavena na hodnotu \\ \texttt{False\_user\_agent}. Testované opatření je popsáno v~sekci~\ref{sec:check_UA}. Při použití nevalidní hodnoty \texttt{User-Agent} byl uživatel přesměrován na stránku s~upozorněním. Aplikační firewall sítě Socnet tento útok \textit{úspěšně odhalil}.
 
 \subsection*{Test odhalení více úspěšných přihlášení}
-Test ověřuje, zda dokáže aplikační firewall odhalit více úspěšných přihlášení jednoho uživatele za posledních 10~sekund. Smysl tohoto opatření je popsán v~sekci \ref{sec:num_of_succ_logins}. Skript byl naprogramován tak, aby spustil okno prohlížeče a~úspěšně se pokusil přihlásit do sociální sítě. Test se skládá ze~2~částí, aby mohl být správně otestován:
+Test ověřuje, zda dokáže aplikační firewall odhalit více úspěšných přihlášení jednoho uživatele za posledních 10~sekund. Smysl tohoto opatření je popsán v~sekci~\ref{sec:num_of_succ_logins}. Skript byl naprogramován tak, aby spustil okno prohlížeče a~úspěšně se pokusil přihlásit do sociální sítě. Test se skládá ze~2~částí, aby mohl být správně otestován:
 
 \begin{enumerate}
   \item Méně než 6 přihlášení během 10~sekund~--~firewall \textit{nesmí} odhalit podezřelý provoz a~ve všech oknech uživatele úspěšně přihlásit
@@ -955,7 +955,7 @@ Test ověřuje, zda dokáže aplikační firewall odhalit více úspěšných p�
 Tento test probíhal tak, že se v~jednom okamžiku 5$\times$ (pro první část) či 6$\times$ (pro druhou část) spustil Python skript (tzn. otevřelo se okno Google Chrome) a~uživatel se pokusil přihlásit. V~obou částech se aplikační firewall choval přesně podle očekávání: dovolil prvních 5~přihlášení a~šestá a~další přihlášení byla blokována. Poté bylo vyzkoušeno 10~pokusů o~přihlášení ve stejný čas: uživatel se přihlásil úspěšně pouze 5$\times$ a~ostatní pokusy byly zamítnuty. Aplikační firewall \textit{úspěšně prošel} tímto testem.
 
 \subsection*{Test odhalení více neúspěšných přihlášení}
-Test ověřuje funkci aplikačního firewallu popsanou v~sekci \ref{sec:num_of_unsucc_logins}. Ochrana sítě Socnetu by měla odhalit případy, kdy se uživatel snaží 3$\times$ nebo více přihlásit se špatným heslem z~jednoho webového prohlížeče (tzn. z~jedné IP adresy a~prohlížeče s~daným \texttt{User-Agent}). Skript funguje stejně jako v~předchozím testu, ale do pole pro heslo vyplňuje \textit{špatné} heslo. Probíhá více testů pro zjištění správné funkce:
+Test ověřuje funkci aplikačního firewallu popsanou v~sekci~\ref{sec:num_of_unsucc_logins}. Ochrana sítě Socnetu by měla odhalit případy, kdy se uživatel snaží 3$\times$ nebo více přihlásit se špatným heslem z~jednoho webového prohlížeče (tzn. z~jedné IP adresy a~prohlížeče s~daným \texttt{User-Agent}). Skript funguje stejně jako v~předchozím testu, ale do pole pro heslo vyplňuje \textit{špatné} heslo. Probíhá více testů pro zjištění správné funkce:
 
 \begin{enumerate}
   \item Méně než 3~neúspěšná přihlášení během 30~sekund~--~firewall \textit{nesmí} zablokovat provoz z~webového prohlížeče
@@ -967,7 +967,7 @@ Test ověřuje funkci aplikačního firewallu popsanou v~sekci \ref{sec:num_of_u
 Pro první část se skript v~jednom okamžiku spouštěl 2$\times$ a~poté se uživatel zkoušel přihlásit se správným heslem, což se mu podařilo. V~druhé části bylo spuštěno 5~oken, ve kterých se uživatel snažil přihlásit se špatným heslem~--~ve dvou oknech byl uživatel upozorněn na špatné heslo a~ve 3~byl upozorněn, že jeho IP~adresa byla zablokována. Třetí část probíhala těsně po skončení druhé části, protože uživateli musí být umožněno se přihlásit z~jiného webového prohlížeče~--~uživatel se úspěšně přihlásil. Všechny tři části tohoto testu byly vyhodnoceny jako \textit{úspěšné}.
 
 \subsection*{Test identického opakovaného chování}
-Tento test zkouší, zda aplikační firewall dokáže odhalit identické chování uživatele na sociální síti tak, jak je popsáno v~kapitole \ref{sec:identical_behaviour}. Test probíhá následujícím způsobem:
+Tento test zkouší, zda aplikační firewall dokáže odhalit identické chování uživatele na sociální síti tak, jak je popsáno v~kapitole~\ref{sec:identical_behaviour}. Test probíhá následujícím způsobem:
 
 \begin{enumerate}
   \item Uživatel se úspěšně přihlásí
@@ -977,14 +977,14 @@ Tento test zkouší, zda aplikační firewall dokáže odhalit identické chová
 \end{enumerate}
 
 \noindent
-Selenium \textit{postupně} spouští okna prohlížeče 8$\times$ (nikoli v~jeden okamžik jako v~předchozích testech) a~testuje, zda aplikační firewall zablokuje uživatele při šestém\footnote{Firewall by měl zablokovat uživatele právě po 5~přihlášeních podle tabulky \ref{tab:allowed_num_of_repeatings}.} procesu přihlášení. Sedmé přihlášení by mělo proběhnout v~pořádku, ale osmé by mělo být opět zablokováno. Aplikační firewall se zachoval přesně podle předpokladu, test byl tedy vyhodnocen jako \textit{úspěšný}.
+Selenium \textit{postupně} spouští okna prohlížeče 8$\times$ (nikoli v~jeden okamžik jako v~předchozích testech) a~testuje, zda aplikační firewall zablokuje uživatele při šestém\footnote{Firewall by měl zablokovat uživatele právě po 5~přihlášeních podle tabulky~\ref{tab:allowed_num_of_repeatings}.} procesu přihlášení. Sedmé přihlášení by mělo proběhnout v~pořádku, ale osmé by mělo být opět zablokováno. Aplikační firewall se zachoval přesně podle předpokladu, test byl tedy vyhodnocen jako \textit{úspěšný}.
 
 \section{Další vývoj a~možná vylepšení}
 Navrhovaný aplikační firewall nebere v~potaz aktuální denní čas či pořadí dne v~týdnu. Automatický robot může být však naprogramován tak, že bude přistupovat na sociální síť každé pondělí v~13:00 a~bude provádět určité akce. Jiné akce bude provádět ve středu v~07:15 apod.
 
-Vylepšení, které by pravděpodobně zvýšilo účinnost aplikačního firewallu, je analýza chování v~závislosti na \textit{dni v~týdnu}. To znamená, že v~neděli by se aplikační firewall choval jinak než v~úterý. Tím je myšleno, že by bylo analyzováno chování pro \textit{všechna úterý v~posledních 3 měsících} a~pokud by počet identických chování (hodnota \texttt{count}) překročil určitý počet (tabulka s~povoleným počtem opakujících se chování \ref{tab:allowed_num_of_repeatings} se může libovolně upravovat), provoz by se zakázal. 
+Vylepšení, které by pravděpodobně zvýšilo účinnost aplikačního firewallu, je analýza chování v~závislosti na \textit{dni v~týdnu}. To znamená, že v~neděli by se aplikační firewall choval jinak než v~úterý. Tím je myšleno, že by bylo analyzováno chování pro \textit{všechna úterý v~posledních 3 měsících} a~pokud by počet identických chování (hodnota \texttt{count}) překročil určitý počet (tabulka s~povoleným počtem opakujících se chování~\ref{tab:allowed_num_of_repeatings} se může libovolně upravovat), provoz by se zakázal. 
 
-Další věc, jež může zvýšit účinnost ochrany před automatickým přístupem, je \textit{analýza chování v~závislosti na denním času}. V~případě, že se uživatel přihlásí v~14:04, jsou analyzována všechna chování, do kterých se uživatel přihlásil v~době od 14:00 do 14:10 například v~posledních 100~dnech. Samozřejmě je vhodné upravovat tabulku s~povoleným počtem opakujících se chování \ref{tab:allowed_num_of_repeatings}. 
+Další věc, jež může zvýšit účinnost ochrany před automatickým přístupem, je \textit{analýza chování v~závislosti na denním času}. V~případě, že se uživatel přihlásí v~14:04, jsou analyzována všechna chování, do kterých se uživatel přihlásil v~době od 14:00 do 14:10 například v~posledních 100~dnech. Samozřejmě je vhodné upravovat tabulku s~povoleným počtem opakujících se chování~\ref{tab:allowed_num_of_repeatings}. 
 
 Poslední navrhované vylepšení je \textit{zaokrouhlení časů od přihlášení} provedených akcí. Pokročilí roboti totiž mohou provádět stejné akce na sociální síti za jiný čas. Pokud je tedy pole s~časy vypadá například takto: \texttt{[0, 3, 5, 7, 11]}, může být díky zaokrouhlení vyhodnoceno jako ekvivalentní s~tímto polem: \texttt{[0, 3, 6, 8, 10]}. Rozsah zaokrouhlení lze nastavit téměř libovolně, avšak příliš vysoký rozsah nebude fungovat a~může vyhodnotit normálního uživatele jako robota.
 
