@@ -301,9 +301,9 @@ Aplikační firewall používá k~odhalení automatických botů zpravidla více
 Aplikační firewall velmi často pracuje s~hodnotami v~HTTP hlavičce. Jednodušší boti neposkytují hodnotu \texttt{User-Agent} (viz~\ref{sec:user_agent}) a~aplikační firewall je může na základě absence těchto informací zařadit do gray IP listu (viz~\ref{sec:ip_lists}) či rovnou zakázat provoz. Tedy uživatel, resp. bot, který neposkytuje tyto informace a~aplikační firewall to odhalí, zpravidla řeší úlohu CAPTCHA~\ref{sec:captcha} nebo jiný Turingův test\footnote{Turingovy testy ověřují, zda má systém navštěvující webovou stránku lidskou inteligenci nebo ne.} pro přístup do webové služby.
 
 \subsection*{Analýza četnosti návštěv}
-Analýza četnosti návštěv je \textit{střednědobá technika}\footnote{Střednědobá technika znamená, že její zavedení vyžaduje nějaký časový rámec, například 2~týdny.}, která slouží k~rozpoznávání automatického přístupu na základě analýzy časů přihlašování. Pokud se \textit{časové intervaly} mezi jednotlivými přihlášeními jednoho uživatele liší velmi málo či vůbec, lze z~toho usoudit, že uživatel je automatický bot. Podobně lze analyzovat \textit{denní časy} přihlašování uživatele~--~pokud se uživatel přihlašuje pouze ve stejné nebo velmi podobné denní časy, může jít o~automatický přístup.
+Analýza četnosti návštěv je \textit{střednědobá technika}\footnote{Střednědobá technika znamená, že její zavedení vyžaduje nějaký časový rámec, například 2~týdny.}, která slouží k~rozpoznávání automatického přístupu na základě analýzy časů přihlašování uživatele. Pokud se \textit{časové intervaly} mezi jednotlivými přihlášeními jednoho uživatele liší velmi málo či vůbec, lze z~toho usoudit, že uživatel je automatický bot. Podobně lze analyzovat \textit{denní časy} přihlašování uživatele~--~pokud se uživatel přihlašuje pouze ve stejné nebo velmi podobné denní časy, může jít o~automatický přístup.
 
-Aby tato ochrana odhalovala pouze automatické boty a~neblokovala provoz normálním uživatelům, je nutné analyzovat časy uživatelských přihlašování \textit{po určitou dobu} (čím déle, tím lépe~--~proto střednědobá technika), než bude uživateli např.~odebrán účet. Může se totiž stát, že se i~normální uživatel bude přihlašovat ve~velmi podobné denní časy, ale jistě se někdy přihlásí dříve nebo později (normální uživatel se nedokáže přihlásit každý den v~naprosto stejný čas). 
+Aby tato ochrana odhalovala pouze automatické boty a~neblokovala provoz normálním uživatelům, je nutné analyzovat časy uživatelských přihlašování \textit{po určitou dobu} (čím déle, tím lépe, proto střednědobá technika), než bude uživateli např.~odebrán účet. Může se totiž stát, že se i~normální uživatel bude přihlašovat ve~velmi podobné denní časy, ale jistě se někdy přihlásí dříve nebo později (normální uživatel se nedokáže přihlásit každý den v~naprosto stejný čas). 
 
 \subsection*{Analýza doby strávené na webu}
 \label{sec:time_analysis}
@@ -551,12 +551,12 @@ Každý uživatel navštěvující určitou sociální síť má obvykle ve zvyk
 \label{tab:soc_behaviour_P3}
 \end{table}
 
-\section{Popis testování sociálních sítí}
+\section{Popis testování reálných sociálních sítí}
 Každá vybraná sociální síť byla otestována 5~testy. První dva jsou \textit{automatické}, třetí je \textit{poloautomatický} a~zbývající 2~jsou prováděny \textit{manuálně}. Automatické testy byly provedeny nástrojem Selenium WebDriver (viz~\ref{sec:selenium_webdriver}) s~využitím programovacího jazyka Python. Ostatní testy byly provedeny pomocí nástrojů uvedených v~seznamu níže. Každá sociální síť byla otestována v~tomto pořadí: 
 \begin{itemize}
   \item \textit{Automatický test stejného chování} (automaticky pomocí Selenium WebDriver)
   \item \textit{Automatický test hromadného přístupu} (automaticky pomocí Selenium WebDriver)
-  \item \textit{Test ověřování} \texttt{User-Agent} \textit{hodnoty} (manuálně pomocí Selenium WebDriver)
+  \item \textit{Test ověřování} \texttt{User-Agent} \textit{hodnoty} (změna hodnoty \texttt{User-Agent} v hlavičce pomocí Selenium WebDriver)
   \item \textit{Přístup z~prohlížeče Tor} (manuálně pomocí prohlížeče Tor)
   \item \textit{Test kódování identifikátorů HTML} elementů (manuálně pomocí prohlížeče Google Chrome)
 \end{itemize}
