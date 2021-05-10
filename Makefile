@@ -28,7 +28,7 @@ $(CO).dvi: $(CO).tex $(CO).bib
 	latex $(CO)
 
 clean:
-	rm -f *.dvi *.log $(CO).blg $(CO).bbl $(CO).toc *.aux $(CO).out $(CO).lof $(CO).ptc $(CO).fls $(CO).fdb
+	rm -f *.dvi *.log $(CO).blg $(CO).bbl $(CO).toc *.aux $(CO).out $(CO).lof $(CO).ptc $(CO).fls $(CO).fdb $(CO).fdb_latexmk $(CO).synctex.gz
 	# rm -f $(CO).pdf
 	rm -f *~
 
